@@ -4,16 +4,16 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <name>DeepaMehta 5 Plugin Template</name>
+    <name>DMX Note</name>
     <groupId>com.example</groupId>
-    <artifactId>dm5-plugin-template</artifactId>
-    <version>0.6</version>
+    <artifactId>dmx-note</artifactId>
+    <version>0.0.1</version>
     <packaging>bundle</packaging>
 
     <parent>
         <groupId>systems.dmx</groupId>
         <artifactId>dmx-plugin</artifactId>
-        <version>5.0-beta-7</version>
+        <version>5.0-SNAPSHOT</version>
     </parent>
 
     <build>
