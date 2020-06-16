@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Artifact-Id: dmx-note
+Bnd-LastModified: 1592306502383
+Build-Jdk: 1.8.0_252
+Built-By: sirlarion
+Bundle-Activator: systems.dmx.core.osgi.PluginActivator
+Bundle-Description: Parent POM for all DMX plugins (= OSGi bundles). 3 f
+ eatures:          - declares the `dmx-core` dependency as needed by all
+  DMX plugins          - preconfigures the DMX default bundle activator 
+          - derives the hot deployment feature
+Bundle-License: https://www.gnu.org/licenses/agpl-3.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: DMX Note
+Bundle-SymbolicName: com.example.dmx-note
+Bundle-Version: 0.0.1
+Created-By: Apache Maven Bundle Plugin
+Import-Package: systems.dmx.core.osgi;version="[5.0,6)"
+Tool: Bnd-2.1.0.20130426-122213

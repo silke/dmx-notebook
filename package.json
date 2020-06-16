@@ -1,12 +1,12 @@
 {
-  "name": "dm5-mobile",
-  "version": "0.2.0",
-  "description": "A simple webclient for the DMX platform",
-  "author": "Jörg Richter <jri@dmx.berlin>",
+  "name": "dmx-note",
+  "version": "0.0.1",
+  "description": "A mobile note-taking plugin for dmx",
+  "author": "Miska Tammenpää <miska.tammenpaa@gmail.com>",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jri/dm5-mobile.git"
+    "url": "https://github.com/SirLarion/dmx-note.git"
   },
   "scripts": {
     "build": "webpack -p --hide-modules",
