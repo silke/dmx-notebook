@@ -1,15 +1,48 @@
 {
-  "name": "dm5-plugin-template",
-  "version": "0.6.0",
-  "description": "A starter project for DeepaMehta 5 plugin developers",
+  "name": "dm5-mobile",
+  "version": "0.2.0",
+  "description": "A simple webclient for the DMX platform",
   "author": "Jörg Richter <jri@dmx.berlin>",
-  "license": "GPL-3.0-or-later",
+  "license": "AGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jri/dm5-plugin-template.git"
+    "url": "https://github.com/jri/dm5-mobile.git"
   },
   "scripts": {
-    "build": "../../node_modules/.bin/webpack -p --hide-modules",
-    "stats": "../../node_modules/.bin/webpack -p --json > stats.json && ../../node_modules/.bin/webpack-bundle-analyzer stats.json src/main/resources/web"
+    "build": "webpack -p --hide-modules",
+    "dev": "webpack-dev-server --env.dev --hot"
+  },
+  "dependencies": {
+    "dm5": "https://github.com/jri/dm5.git",
+    "dm5-detail-panel": "https://github.com/jri/dm5-detail-panel.git",
+    "dm5-login-dialog": "https://github.com/jri/dm5-login-dialog.git",
+    "dm5-object-renderer": "https://github.com/jri/dm5-object-renderer.git",
+    "dm5-search-widget": "https://github.com/jri/dm5-search-widget.git",
+    "dm5-topic-list": "https://github.com/jri/dm5-topic-list.git",
+    "dm5-websocket": "https://github.com/jri/dm5-websocket.git",
+    "element-ui": "^2.13.0",
+    "font-awesome": "^4.7.0",
+    "vue": "^2.6.11",
+    "vue-router": "3.0.7",
+    "vuex": "^3.1.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-component": "^1.1.1",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.2",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "style-loader": "^1.1.3",
+    "vue-loader": "^15.8.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
   }
 }

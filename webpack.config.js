@@ -1,56 +1,69 @@
-// As "pluginUri" you must specify this plugin's Bundle Symbolic Name.
-// Being an OSGi bundle every DMX plugin has a globally unique "Bundle Symbolic Name" (see OSGi specification).
-// The Bundle Symbolic Name is calculated by the Maven Bundle Plugin based on the plugin's Maven Group ID and
-// Artifact ID (see this plugin's pom.xml), and has basically the form "<groupId>.<artifactId>".
-const pluginUri = 'com.example.dm5-plugin-template'
-
-const MiniCssExtractPlugin   = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const { VueLoaderPlugin }    = require('vue-loader')
+const { VueLoaderPlugin } = require('vue-loader')
 
-module.exports = {
-  entry: './src/main/js/plugin.js',
-  output: {
-    path: __dirname + '/src/main/resources/web',
-    filename: '[chunkhash].plugin.js',
-    chunkFilename: '[chunkhash].[name].js',
-    publicPath: '/' + pluginUri + '/',
-    library: '_' + pluginUri.replace(/[.-]/g, '_'),
-    libraryTarget: 'jsonp'
-  },
-  resolve: {
-    extensions: [".js", ".vue"]
-  },
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.css$/,
-        loader: [MiniCssExtractPlugin.loader, 'css-loader']
-      }
-    ]
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[contenthash].style.css',
-      chunkFilename: '[contenthash].[name].css'
-    }),
-    new CleanWebpackPlugin(),
-    new VueLoaderPlugin()
-  ],
-  stats: {
-    entrypoints: false,
-    assetsSort: 'chunks'
-  },
-  performance: {
-    hints: false
+module.exports = (env = {}) => {
+
+  const webpackConfig = {
+    entry: './src/main/js/main.js',
+    output: {
+      path: __dirname + '/src/main/resources/web',
+      filename: env.dev ? '[name].js' : '[chunkhash].[name].js'
+    },
+    resolve: {
+      extensions: [".js", ".vue"],
+    },
+    module: {
+      rules: [
+        {
+          test: /\.vue$/,
+          loader: 'vue-loader'
+        },
+        {
+          test: /\.js$/,
+          loader: 'babel-loader',
+          exclude: /node_modules/
+        },
+        {
+          test: /\.css$/,
+          loader: [env.dev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader']
+        },
+        {
+          test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
+          loader: 'file-loader'
+        }
+      ]
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: 'src/main/resources/index.html',
+        favicon:  'src/main/resources/favicon.png'
+      }),
+      new MiniCssExtractPlugin({
+        filename: env.dev ? '[name].css' : '[contenthash].[name].css'
+      }),
+      new CleanWebpackPlugin(),
+      new VueLoaderPlugin()
+    ],
+    stats: {
+      entrypoints: false,
+      children: false,
+      assetsSort: 'chunks'
+    },
+    performance: {
+      hints: false
+    }
   }
+
+  if (env.dev) {
+    webpackConfig.devServer = {
+      port: 8084,
+      proxy: {'/': 'http://localhost:8080'},
+      noInfo: true,
+      open: true
+    }
+  }
+
+  return webpackConfig
 }
