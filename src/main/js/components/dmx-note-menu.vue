@@ -1,8 +1,7 @@
 <template>
-  <el-dropdown class="dm5-main-menu" size="medium" trigger="click" @command="handle">
+  <el-dropdown class="dmx-note-menu" size="medium" trigger="click" @command="handle">
     <span class="fa fa-bars"></span>
     <el-dropdown-menu slot="dropdown">
-      <el-dropdown-item command="openSearchWidget">{{searchLabel}}</el-dropdown-item>
       <el-dropdown-item v-if="!username" command="openLoginDialog" divided>Login</el-dropdown-item>
       <el-dropdown-item v-else command="logout" divided>Logout "{{username}}"</el-dropdown-item>
     </el-dropdown-menu>
@@ -16,11 +15,8 @@ export default {
 
     username () {
       return this.$store.state.login.username
-    },
-
-    searchLabel () {
-      return this.username ? 'Search / Create' : 'Search'
     }
+
   },
 
   methods: {

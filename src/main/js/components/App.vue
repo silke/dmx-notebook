@@ -57,6 +57,11 @@
   --color-danger: #f56c6c;                    /* matches --color-danger */
   --border-color: #dcdfe6;                    /* matches --border-color-base */
   --border-color-lighter: #ebeef5;            /* matches --border-color-lighter */
+
+  --bg-main: ghostwhite;
+  --bg-note: white;
+  --bg-header: #2F2D40;
+  --fg-light: ghostwhite;
 }
 
 html {

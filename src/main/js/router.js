@@ -7,7 +7,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { MessageBox } from 'element-ui'
-import Mobile from './components/dm5-mobile'
+import Mobile from './components/dmx-note'
 import store from './store/mobile'
 import dm5 from 'dm5'
 

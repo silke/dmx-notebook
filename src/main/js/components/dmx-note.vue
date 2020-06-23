@@ -1,15 +1,8 @@
 <template>
   <div class="dmx-note">
     <dmx-note-main></dmx-note-main>
-    <dm5-main-menu class="main-menu"></dm5-main-menu>
+    <dmx-note-menu class="main-menu"></dmx-note-menu>
     <dm5-login-dialog :visible="loginVisible" @logged-in="loggedIn" @close="closeLogin"></dm5-login-dialog>
-    <dm5-search-widget :visible="searchVisible" :create-enabled="createEnabled" :menu-topic-types="menuTopicTypes"
-      width="96%" layout="column" @topic-reveal="revealTopic" @topic-create="createTopic" @close="closeSearch">
-    </dm5-search-widget>
-    <dm5-detail-panel :object="object" :writable="writable" :tab="tab" :mode="mode" :quill-config="quillConfig"
-      no-pin-button @tab-click="tabClick" @edit="edit" @submit="submit" @submit-inline="submitInline"
-      @child-topic-reveal="revealTopic" @related-topic-click="revealTopic" @related-icon-click="revealTopic">
-    </dm5-detail-panel>
   </div>
 </template>
 
@@ -108,10 +101,8 @@ export default {
 
   components: {
     'dmx-note-main':     require('./dmx-note-main').default,
-    'dm5-main-menu':     require('./dm5-main-menu').default,
+    'dmx-note-menu':     require('./dmx-note-menu').default,
     'dm5-login-dialog':  require('dm5-login-dialog').default,
-    'dm5-search-widget': require('dm5-search-widget').default,
-    'dm5-detail-panel':  require('dm5-detail-panel').default
   }
 }
 </script>
@@ -121,7 +112,7 @@ export default {
   min-height: 100%;
 }
 
-.dmx-note .dm5-detail-panel {
+.dmx-note {
   flex-grow: 1;
   background-color: var(--background-color);
 }
