@@ -1,21 +1,31 @@
 <template>
   <div class="main">
-    <div class="field-label">Title</div>
-    <el-input
-      id="note-title"
-      placeholder="Snörje"
-      v-model="titlefield"
-    >
-    </el-input>
-    <div class="field-label">Content</div>
-    <el-input
-      id="note-content"
-      type="textarea"
-      :autosize="{ minRows: 3 }"
-      placeholder="Börje"
-      v-model="contentfield"
-    >
-    </el-input>
+    <div class="header">
+      <div class="title"><b>dmx</b> note</div>
+    </div>
+    <div class="note">
+      <div class="note-title">
+        <el-input
+          id="titlefield"
+          placeholder="Note title"
+          v-model="titlefield"
+        >
+        </el-input>
+      </div>
+      <div class="note-content">
+        <div class="content-scroll-wrapper">
+          <el-input
+            id="contentfield"
+            type="textarea"
+            :autosize="{minRows: 17}"
+            placeholder="Note content"
+            v-model="contentfield"
+          >
+          </el-input>
+        </div>
+      </div>
+      <el-button>Save</el-button>
+    </div>
   </div>
 </template>
 
@@ -31,26 +41,74 @@ export default {
 </script>
 
 <style>
-h3 {
-  color: red;
+.title {
+  font-size: 3vh;
+  font-weight: 400;
+  color: ghostwhite;
+  margin-left: 5vw;
 }
 
-#note-title {
-  width: 66%;
+.header {
+  display: flex;
+  align-items: center;
+  height: 8vh; /* Body = 92vh */
+  background-color: #2F2D40;
+  border-bottom: solid 1px gray;
 }
 
-#note-content {
-  width: 90%;
-}
-
-.el-input__inner, .el-textarea__inner {
-  margin: 0.3em !important;
+#titlefield, #contentfield {
+  margin-top: 0.3vh !important;
+  border-style: none !important;
   border-radius: 0 !important;
 }
 
+#titlefield {
+  padding: 3vh !important;
+  font-size: 2em !important;
+}
+
+#contentfield {
+  padding: 1.5vh !important;
+}
+
+.note {
+  padding-top: 2vh;
+  width: 87%;
+  margin: auto;
+}
+
+.note-title {
+  margin: 1vh;
+  box-sizing: border-box;
+  background-color: white;
+  /* box-shadow: 0 4px 8px 2px rgba(0,0,0,0.15);
+  transition: 0.3s;
+  */
+}
+
+.note-content {
+  margin: 1vh;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 24em;
+  background-color: white;
+}
+
+.content-scroll-wrapper {
+  width: 96%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+/*
+.note-title:hover, .note-content:hover {
+  box-shadow: 0 6px 10px 4px rgba(0,0,0,0.15);
+}
+*/
+
 .main {
-  margin-top: 5px;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  height: 92vh; /* Header = 8vh */
+  background-color: ghostwhite;
+  justify-content: center;
 }
 </style>
