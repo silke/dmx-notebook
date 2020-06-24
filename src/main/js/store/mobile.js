@@ -59,14 +59,17 @@ const actions = {
     })
   },
 
-  createTopic ({dispatch}, {topicType, value}) {
+  createTopic ({dispatch}, {value, content}) {
     // Note: for value integration to work at least all identity fields must be filled
-    const topicModel = new dm5.Topic(topicType.newTopicModel(value)).fillChildren()
+    const noteType = dm5.typeCache.getTopicType('dmx.notes.note')
+    const noteModel = new dm5.Topic(noteType.newTopicModel(value)).fillChildren()
+    noteModel.children['dmx.notes.text'].value = content
+    // console.log('Note ', noteModel)
     // console.log('createTopic', topicModel)
-    dm5.restClient.createTopic(topicModel).then(topic => {
-      console.log('Created', topic)
-      dispatch('callTopicRoute', topic.id)
-      dispatch('_processDirectives', topic.directives)
+    dm5.restClient.createTopic(noteModel).then(note => {
+      console.log('Created', note)
+      dispatch('callTopicRoute', note.id)
+      dispatch('_processDirectives', note.directives)
     })
   },
 
@@ -96,6 +99,7 @@ const actions = {
 
   loggedIn () {
     initWritable()
+    updateStateTopicTypes()
   },
 
   loggedOut () {

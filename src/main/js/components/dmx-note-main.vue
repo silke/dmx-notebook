@@ -38,7 +38,11 @@
             </div>
           </div>
         </div>
-        <el-button v-if="contentfield" class="save-note">Save</el-button>
+        <el-button 
+          v-if="contentfield" 
+          class="save-note"
+          @click="saveNote()"
+        >Save</el-button>
         <el-button v-else disabled class="save-disabled">Save</el-button>
       </div>
     </div>
@@ -49,23 +53,47 @@
 </template>
 
 <script>
+import dm5 from 'dm5';
 export default {
   data () {
     return {
       titlefield: '',
       contentfield: '',
       colorcodes: ['red', 'green', 'blue', 'yellow', 'purple'],
-      selectedColorIndex: null
+      selectedColorIndex: null,
     }
   },
 
   computed: {
     username () {
       return this.$store.state.login.username;
+    },
+    noteTopicType () {
+      return this.$store.getters.noteTopicType;
     }
+    
   },
 
   methods: {
+    saveNote() {
+      console.log('Saving note...');
+      let title = '';
+      if(this.titlefield){
+        title = this.titlefield;
+      }
+      else {
+        title = this.getDate();
+      };
+      // console.log(title);
+      // console.log(this.contentfield);
+      this.$store.dispatch('createTopic', {
+          topicType: this.noteTopicType, 
+          value: title,
+          content: this.contentfield
+      });
+      this.titlefield = ''
+      this.contentfield = ''
+    },
     getDate() {
       return (new Date()).toDateString();
     },
@@ -86,10 +114,6 @@ export default {
       };
     }
   },
-
-  //mounted: {
-  //  this.$store.dispatch(openLoginDialog());
-  //}
 }
 </script>
 

@@ -62,12 +62,12 @@ export default {
       this.$store.dispatch('callTopicRoute', topic.id)
     },
 
-    createTopic ({topicType, value}) {
-      this.$store.dispatch('createTopic', {topicType, value})
+    createTopic ({topictype, value}) {
+      this.$store.dispatch('createtopic', {topictype, value})
     },
 
     closeSearch () {
-      this.$store.dispatch('closeSearchWidget')
+      this.$store.dispatch('closesearchwidget')
     },
 
     tabClick (tab) {
