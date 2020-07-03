@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import App from './components/App'
 import dm5 from 'dm5'
-import store from './store/mobile'
+import store from './store/client'
 import router from './router'
 import onHttpError from './error-handler'
 import 'font-awesome/css/font-awesome.css'
 import './element-ui'
 import './websocket'
 
-console.log('[DMX Note] 2020/05/25')
+console.log('[DMX Notebook] 2020/05/25')
 
 // 1) Init dm5 library
 // The dm5 library must be inited *before* the dm5-webclient component is instantiated.
@@ -20,8 +20,7 @@ const dm5ready = dm5.init({
 
 // 2) Register store modules
 store.registerModule('login',   require('./store/login').default)
-store.registerModule('search',  require('./store/search').default)
-store.registerModule('details', require('./store/details').default)
+store.registerModule('notebook', require('./store/notebook').default)
 
 // 3) Register store watcher
 store.watch(

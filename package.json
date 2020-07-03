@@ -1,12 +1,12 @@
 {
-  "name": "dmx-note",
+  "name": "dmx-notebook",
   "version": "0.0.1",
   "description": "A mobile note-taking plugin for dmx",
   "author": "Miska Tammenpää <miska.tammenpaa@gmail.com>",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SirLarion/dmx-note.git"
+    "url": "https://github.com/SirLarion/dmx-notebook.git"
   },
   "scripts": {
     "build": "webpack -p --hide-modules",
@@ -14,11 +14,7 @@
   },
   "dependencies": {
     "dm5": "https://github.com/jri/dm5.git",
-    "dm5-detail-panel": "https://github.com/jri/dm5-detail-panel.git",
     "dm5-login-dialog": "https://github.com/jri/dm5-login-dialog.git",
-    "dm5-object-renderer": "https://github.com/jri/dm5-object-renderer.git",
-    "dm5-search-widget": "https://github.com/jri/dm5-search-widget.git",
-    "dm5-topic-list": "https://github.com/jri/dm5-topic-list.git",
     "dm5-websocket": "https://github.com/jri/dm5-websocket.git",
     "element-ui": "^2.13.0",
     "font-awesome": "^4.7.0",

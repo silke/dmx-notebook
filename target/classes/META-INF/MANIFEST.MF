@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Artifact-Id: dmx-note
-Bnd-LastModified: 1592404174619
+Artifact-Id: dmx-notebook
+Bnd-LastModified: 1593791648628
 Build-Jdk: 1.8.0_252
 Built-By: sirlarion
 Bundle-Activator: systems.dmx.core.osgi.PluginActivator
@@ -10,8 +10,8 @@ Bundle-Description: Parent POM for all DMX plugins (= OSGi bundles). 3 f
           - derives the hot deployment feature
 Bundle-License: https://www.gnu.org/licenses/agpl-3.0.txt
 Bundle-ManifestVersion: 2
-Bundle-Name: DMX Note
-Bundle-SymbolicName: com.example.dmx-note
+Bundle-Name: DMX Notebook
+Bundle-SymbolicName: systems.dmx.notebook
 Bundle-Version: 0.0.1
 Created-By: Apache Maven Bundle Plugin
 Import-Package: systems.dmx.core.osgi;version="[5.0,6)"

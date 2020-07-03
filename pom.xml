@@ -4,9 +4,9 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <name>DMX Note</name>
-    <groupId>com.example</groupId>
-    <artifactId>dmx-note</artifactId>
+    <name>DMX Notebook</name>
+    <groupId>systems.dmx</groupId>
+    <artifactId>dmx-notebook</artifactId>
     <version>0.0.1</version>
     <packaging>bundle</packaging>
 

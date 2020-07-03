@@ -1,9 +1,8 @@
 import DM5WebSocket from 'dm5-websocket'
-import store from './store/mobile'
+import store from './store/client'
 
 /* eslint no-new: 0 */
 
-// messages handled by this app (see mobile.js)
 const MESSAGES = [
   'processDirectives',
   'newTopicType',     // TODO: refactor message processing from actions into a Vue event bus.
