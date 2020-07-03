@@ -2,7 +2,7 @@
 
 A mobile note-taking plugin for [dmx](https://dmx.berlin/)
 
-Clone into the bundle-dev/ folder of you DMX instance (or modules-external/ if yout DMX is built from source) and run 
+Clone into the bundle-dev/ folder of you DMX instance (or modules-external/ if your DMX is built from source) and run 
 ```
 mvn clean package
 ```
