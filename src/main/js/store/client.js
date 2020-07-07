@@ -59,9 +59,11 @@ const actions = {
     noteModel.children['dmx.notes.text'].value = content;
     const res = dm5.restClient.createTopic(noteModel);
     dispatch('displayPopupAnimation', null);
+
     //Artificial delay for testing loading animation
     setTimeout(() => {
         res.then(note => {
+          //TODO: Create association to colorcode after successfully creating note topic
           console.log('Created', note);
           dispatch('displayPopupAnimation', true);
         }, fail => {

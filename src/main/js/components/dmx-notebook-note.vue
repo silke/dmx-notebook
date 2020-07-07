@@ -37,7 +37,7 @@
       <el-button 
         v-if="contentField" 
         class="save-note"
-        @click="saveNote()"
+        @click.prevent="saveNote()"
       >Save</el-button>
       <el-button v-else disabled class="save-disabled">Save</el-button>
     </div>

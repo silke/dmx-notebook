@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Artifact-Id: dmx-notebook
-Bnd-LastModified: 1593791648628
+Bnd-LastModified: 1593792370681
 Build-Jdk: 1.8.0_252
 Built-By: sirlarion
 Bundle-Activator: systems.dmx.core.osgi.PluginActivator
