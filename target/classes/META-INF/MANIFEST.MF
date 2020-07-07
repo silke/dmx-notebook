@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Artifact-Id: dmx-notebook
-Bnd-LastModified: 1593792370681
+Bnd-LastModified: 1594142312730
 Build-Jdk: 1.8.0_252
-Built-By: sirlarion
+Built-By: silke
 Bundle-Activator: systems.dmx.core.osgi.PluginActivator
 Bundle-Description: Parent POM for all DMX plugins (= OSGi bundles). 3 f
  eatures:          - declares the `dmx-core` dependency as needed by all
